@@ -1,0 +1,221 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #000000, #111111);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.mode-selection {
+    margin-bottom: 20px;
+}
+
+button {
+    background: linear-gradient(135deg, #333, #555);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #555, #777);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin: 20px auto;
+    width: 330px;
+}
+
+.cell {
+    background-color: #222;
+    border: 2px solid #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cell:hover {
+    background-color: #333;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cell.heart {
+    background-color: #e89ec8;
+    color: #910a57;
+    font-weight: bold;
+    animation: popIn 0.5s ease-out;
+}
+
+.cell.star {
+    background-color: #d9c875;
+    color: #ab8e00;
+    animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.status {
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#reset-btn {
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#reset-btn:hover {
+    background: linear-gradient(135deg, #ee5a52, #dc4545);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    background-color: #222;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+body.star-win {
+    background: #d9c875 !important;
+}
+
+.modal-content.heart-win {
+    background-color: #e89ec8;
+    color: black;
+}
+
+.modal-content.heart-win button {
+    background: #910a57;
+    color: white;
+    border: 2px solid white;
+}
+
+.modal-content.star-win {
+    background-color: #d9c875;
+    color: black;
+}
+
+.modal-content.star-win button {
+    background: #ab8e00;
+    color: white;
+    border: 2px solid white;
+}
+
+#setup-modal .modal-content {
+    max-width: 400px;
+}
+
+#setup-modal h2 {
+    margin-top: 0;
+}
+
+.player-setup {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.shape-square {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border-radius: 8px;
+    margin-right: 15px;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    transition: border-color 0.3s;
+}
+
+.shape-square:hover {
+    border-color: #888;
+}
+
+.name-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
